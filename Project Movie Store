@@ -1,0 +1,49 @@
+Q1. Entities and Attributes:
+- Movie: title, release date, length (in minutes), director, IMDB rating, price
+- Genre: genre name
+- Lead Actor: name, gender, total films done
+- Role: role_info, actor name 
+- Sales Record: rental or purchase flag, security deposit amount, rent start date,
+rent expected return date, actual return date
+
+Q2. Composite/ Multivalued/ Derived attributes:
+There are no composite or multivalued attributes in this problem statement. Derived attributes could include the penalty fee charged for rented movies returned late.
+
+Q3. Primary Key and Foreign Keys:
+Primary keys would be:
+- Movie ID (for Movie entity)
+- Genre ID (for Genre entity)
+- Actor ID (for Lead Actor entity)
+- Role ID  (for Role entity)
+- Rental Record ID  (for Sales Record entity)
+
+Foreign keys would be:
+- Genre ID to Movie Entity
+- Actor ID to Role and Lead Actor entities
+- Movie ID to Role Entity
+- Rental Record ID to Sales Record Entity
+
+Q4. Relationship Names and Cardinality Ratios:
+    - One movie can belong to one or more genres; one genre can have many     movies. Relationship Name: Belongs To; Cardinality Ratio: 1:N.
+    - One movie has one director; one director directs many movies. Relationship Name: Directed By; Cardinality Ratio: 1:N.
+    - One lead actor acts in many roles; one role is played by one lead actor. Relationship Name: Acts In; Cardinality Ratio: M:N.
+    - One movie can have many roles played by different actors ;one actor can play different roles in multiple movies.Relationship Name : Has Roles Played By Actors ; cardinality ratio:M:N.
+    - One movie can be rented or purchased multiple times by different customers.Relationship Name : Rented/Purchased By; Cardinality Ratio: M:N.
+    - One customer can rent or purchase multiple movies ;one movie can be rented or purchased by multiple customers. Relationship Name : Rents/Purchases; Cardinality Ratio: M:N.
+
+Q6. Relational Schema:
+1. Movie (Movie_ID PK, Title, Release_date, Length_in_minutes, Director, IMDB_rating, price)
+2. Genre (Genre_ID PK, Genre_name)
+3. Lead_Actor(Actor_ID PK ,Name ,Gender ,Total_films_done )
+4. Role(Role_id PK ,Role_info , Actor_Name(FK),Movie_ID(FK))
+5. Sales record(Rental_Record_ID  PK,Rental_or_purchase_flag ,
+   Security_deposit_amount,
+   Rent_start_date,
+   Rent_expected_return_date,
+   Actual_return_date,
+   Penalty_Fee_Charged 
+Movie_ID(FK))
+6.Movies_Genres(Movie_FK(Genre_id)PK,Genre_Fk(movie_id)PK),
+7.Movies_Director(Director_fk(movie_id)PK director_name),
+8.Lead_Actors_Roles(Role_fk(actor_Id)PK role_info ),
+9.Movie_Role(Role_Fk(movie_id)PK actor_fk(role ID_PK_movie))
